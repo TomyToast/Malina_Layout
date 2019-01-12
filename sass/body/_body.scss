@@ -13,5 +13,5 @@
     width: 100vw;
     height: 100vh;
     max-width: 100rem;
-    @include flex-position(center, center, wrap);
+    @include flex-position(center, flex-start, wrap);
 }

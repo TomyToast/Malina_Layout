@@ -3,7 +3,7 @@
 
 .header {
     width: 100vw;
-    max-width: 360px;
+    max-width: 550px;
     height: 4rem;
     display: flex;
     justify-content: space-between;
@@ -22,9 +22,50 @@
 
     .header_menu {
         align-self: center;
+        position: relative;
+        #hamburger_menu {
+            width: 40px;
+            height: 35px;
+            margin-right: 10px;
+            border: 0;
+            border-top: 6px solid map-get($colors, dark );
+            position: relative;
+            background: transparent;
+            transition: 0.3s transform linear;
+
+            &::after, &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                border-top: 6px solid map-get($colors, dark );
+                transform: translateY(10px);
+            }
+
+            &::after {
+                transform: translateY(25px);
+            }
+
+            &:focus{
+                transform: rotate(45deg) translateY(5px);
+                border: none;
+            }
+
+            &:focus::after {
+                transform: rotate(-90deg) translateX(-10px);
+            }
+
+        }
         .header_menu_list {
+            display: none;
             list-style-type: none;
             border: 2px solid red;
+
+            position: absolute;
+            top: 37px;
+            right: 0;
+
             a {
                 // tu trzeba zrobic hamburger menu!!!!
                 text-decoration: none;
@@ -32,13 +73,10 @@
 
 
                 .menu_list_item {
-                    display: inline;
+                    display: block;
                     border: 2px solid red;
                 }
             }
         }
     }
-    }
-
-
-
+}
