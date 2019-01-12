@@ -1,8 +1,17 @@
 @import "../variables/variables";
+@import "../mixins/mixins";
 
-* {
+
+*, body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    background: map-get($colors , some );
+    // background: map-get($colors , rasp );
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100rem;
+    @include flex-position(center, center, wrap);
 }

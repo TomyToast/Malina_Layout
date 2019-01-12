@@ -1,0 +1,44 @@
+@import "../variables/variables";
+@import "../mixins/mixins";
+
+.header {
+    width: 100vw;
+    max-width: 360px;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid red;
+
+    .header_logo {
+        width: 100%;
+        max-width: 200px;
+
+        background: transparent;
+        background-image: url(images/logo.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+    }
+
+    .header_menu {
+        align-self: center;
+        .header_menu_list {
+            list-style-type: none;
+            border: 2px solid red;
+            a {
+                // tu trzeba zrobic hamburger menu!!!!
+                text-decoration: none;
+                color: map-get($colors, my_gray );
+
+
+                .menu_list_item {
+                    display: inline;
+                    border: 2px solid red;
+                }
+            }
+        }
+    }
+    }
+
+
+

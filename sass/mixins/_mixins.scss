@@ -1,0 +1,8 @@
+
+
+@mixin flex-position($jc, $ai, $fw){
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: $fw;
+    }
