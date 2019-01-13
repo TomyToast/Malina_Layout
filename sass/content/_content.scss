@@ -33,29 +33,38 @@
         height: 100vh;
         border: 2px solid red;
         max-width: 550px;
-    
+        padding: 10px 0;
+
         @include flex-position(center, center, wrap);
 
-        flex-direction: row;
+        flex-direction: column;
+
+        %col {
+            width: 100%;
+            max-width: 550px;
+            height: 33.333%;
+
+            // position: relative;
+            @include flex-position(center , center, nowrap);
+
+            flex-direction: row;
+        }
 
         .content_menu_col {
-            width: 33.3%;
-            height: 100%;
-            max-width: 550px;
-            @include flex-position(center, center, nowrap);
-            // display:none;
-            flex-direction: column;
-            padding: 0 5px 0 5px;
+            @extend %col;
+            border-bottom: 2px solid lightgray;
+            padding: 5px 0;
+
             %content_menu_col_img {
                 width: 100%;
                 height: 100%;
+                max-width: 200px;
 
-                border-radius: 50%;
-                display: inline-block;
                 background: transparent;
+                background-image: url(images/logo.png);
                 background-repeat: no-repeat;
-                background-position: auto;
-                background-size: 100%;
+                background-position: center;
+                background-size: cover;
             }
             .content_menu_col_img1 {
                 @extend %content_menu_col_img;
@@ -65,22 +74,31 @@
             .content_menu_col_img2 {
                 @extend %content_menu_col_img;
                 background-image: url(images/img2.jpg);
+                order: 3;
             }
             .content_menu_col_img3 {
                 @extend %content_menu_col_img;
                 background-image: url(images/img3.jpg);
             }
-            .content_menu_col_span {
-                display: block;
-                color: map-get($colors, my_gray);
-                font-size: 0.75rem;
-                text-align: center;
-            }
-            .content_menu_col_btn {
-                border:none;
-                color: map-get($colors, light);
-                background: map-get($colors, rasp);
-                cursor: pointer;
+            .content_menu_col_subContainer{
+                @include flex-position(center , center, nowrap);
+
+                flex-direction: column;
+                order: 2;
+
+                .content_menu_col_span {
+                    color: map-get($colors, my_gray);
+                    font-size: 0.75rem;
+                    text-align: center;
+                    padding: 5px 55px;
+                }
+                .content_menu_col_btn {
+                    border:none;
+                    color: map-get($colors, light);
+                    background: map-get($colors, rasp);
+                    cursor: pointer;
+                }
+
             }
         }
     }
