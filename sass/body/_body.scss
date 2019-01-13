@@ -13,5 +13,6 @@
     width: 100vw;
     height: 100vh;
     max-width: 100rem;
-    @include flex-position(center, flex-start, wrap);
+    @include flex-position(flex-start, center, nowrap);
+    flex-direction: column;
 }
