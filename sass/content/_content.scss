@@ -1,13 +1,12 @@
 @import "../variables/variables";
 @import "../mixins/mixins";
+@import "../extends/extends";
 
 .content {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     max-width: 550px;
-
     @include flex-position(center, center, nowrap);
-
     flex-direction: column;
 
     .content_hero {
@@ -16,87 +15,167 @@
     border: 2px solid red;
 
     @include flex-position(center, center, nowrap);
-
-    background: transparent;
-    background-image: url(images/main-header-bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+        @extend %bg_img_div;
 
         .content_hero_h1 {
-            color: map-get($colors , light);
+            @extend %title;
+        }
+
+        .content_hero_p {
+            @extend %paragraph;
+        }
+
+        .content_hero_btn {
+            width: 7rem;
+            height: 4rem;
+            border: 2px solid map-get($colors, light);
+            border-radius: 25%;
+            background: map-get($colors, dark);
+            color: map-get($colors, light);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            opacity: 0.8;
+            cursor: pointer;
+            margin-bottom: -10px;
+
+            &:active {
+                opacity: 0.7;
+                box-shadow: inset 0 0 2px 2px map-get($colors, light);
+            }
+        }
+
+        .content_hero_addon {
+            width: 100px;
+            height: 100px;
+
+
+
+            background: transparent;
+            background-image: url(images/header-addon.svg);
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            background-size: 100%;
+
+            position: relative;
+
+            &:after {
+                position: absolute;
+                bottom: 5%;
+                left: 40%;
+                content: '';
+                width: 20px;
+                height: 20px;
+
+                background: transparent;
+                background-image: url(images/arrow.svg);
+                background-repeat: no-repeat;
+                background-position: bottom center;
+                background-size: 100%;
+            }
         }
     }
 
     .content_menu {
-        width: 100%;
-        height: 100vh;
-        border: 2px solid red;
-        max-width: 550px;
-        padding: 10px 0;
-
-        @include flex-position(center, center, wrap);
-
-        flex-direction: column;
-
-        %col {
-            width: 100%;
-            max-width: 550px;
-            height: 33.333%;
-
-            // position: relative;
-            @include flex-position(center , center, nowrap);
-
-            flex-direction: row;
-        }
+        @extend %div_container;
 
         .content_menu_col {
             @extend %col;
             border-bottom: 2px solid lightgray;
             padding: 5px 0;
 
-            %content_menu_col_img {
-                width: 100%;
-                height: 100%;
-                max-width: 200px;
-
-                background: transparent;
-                background-image: url(images/logo.png);
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-            }
             .content_menu_col_img1 {
-                @extend %content_menu_col_img;
+                @extend %col_img;
                 background-image: url(images/img1.jpg);
             }
 
             .content_menu_col_img2 {
-                @extend %content_menu_col_img;
+                @extend %col_img;
                 background-image: url(images/img2.jpg);
                 order: 3;
             }
             .content_menu_col_img3 {
-                @extend %content_menu_col_img;
+                @extend %col_img;
                 background-image: url(images/img3.jpg);
             }
             .content_menu_col_subContainer{
-                @include flex-position(center , center, nowrap);
-
-                flex-direction: column;
-                order: 2;
+                @extend %col_subContainer;
 
                 .content_menu_col_span {
-                    color: map-get($colors, my_gray);
-                    font-size: 0.75rem;
-                    text-align: center;
-                    padding: 5px 55px;
+                    @extend %col_subContainer_span;
                 }
                 .content_menu_col_btn {
-                    border:none;
-                    color: map-get($colors, light);
-                    background: map-get($colors, rasp);
-                    cursor: pointer;
+                    @extend %col_subContainer_btn;
+                }
+
+            }
+        }
+    }
+
+    .content_paralax {
+        @extend %bg_img_div;
+        background-image: url(images/paralax-bg.jpg);
+
+        height: 50%;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: map-get($colors, dark );
+            opacity: 0.4;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .content_paralax_title {
+            @extend %title;
+            z-index: 1;
+        }
+
+        .content_paralax_p {
+            @extend %paragraph;
+            z-index: 1;
+        }
+    }
+
+    .content_gallery {
+        @extend %div_container;
+        height: 30rem;
+        padding: 5px;
+
+        .content_gallery_col {
+            @extend %col;
+
+            .content_gallery_col_img_1 {
+                @extend %col_img;
+                background-image: url(images/img-m-1.jpg);
+            }
+            .content_gallery_col_img_2 {
+                @extend %col_img;
+                background-image: url(images/img-m-2.jpg);
+                order: 3;
+            }
+            .content_gallery_col_img_3 {
+                @extend %col_img;
+                background-image: url(images/img-m-3.jpg);
+            }
+            .content_gallery_col_img_4 {
+                @extend %col_img;
+                background-image: url(images/img-m-4.jpg);
+                order: 3;
+            }
+            .content_gallery_col_subContainer {
+                @extend %col_subContainer;
+
+                .content_gallery_col_subContainer_title{}
+                .content_gallery_col_span{
+                    @extend %col_subContainer_span;
+                }
+                .content_gallery_col_btn{
+                    @extend %col_subContainer_btn;
                 }
 
             }

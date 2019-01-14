@@ -1,17 +1,21 @@
 @import "../variables/variables";
 @import "../mixins/mixins";
 
+html {
+    overflow-y:scroll;
+}
 
 *, body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+
     // background: map-get($colors , rasp );
 }
 
 .container {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     max-width: 100rem;
     @include flex-position(flex-start, center, nowrap);
     flex-direction: column;

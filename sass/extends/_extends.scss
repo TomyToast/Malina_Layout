@@ -1,0 +1,85 @@
+@import "../variables/variables";
+@import "../mixins/mixins";
+
+%div_container {
+    width: 100%;
+    max-width: 34.375rem;
+    height: 25rem;
+    border: 2px solid red;
+
+    @include flex-position(center, center, nowrap);
+    flex-direction: column;
+}
+
+%bg_img_div {
+    @extend %div_container;
+
+    background: transparent;
+    background-image: url(images/main-header-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    text-shadow: -1px 0 map-get($colors , dark),
+                0 1px map-get($colors , dark),
+                1px 0 map-get($colors , dark),
+                0 -1px map-get($colors , dark);
+    padding-top: 15px;
+}
+
+%title {
+    color: map-get($colors , light);
+    font-size: 3rem;
+    text-align: center;
+}
+
+%paragraph {
+    font-size: 0.8rem;
+    text-align: center;
+    color: map-get($colors, light );
+    padding: 5px 50px;
+    margin: 15px 0;
+}
+
+%col {
+    width: 100%;
+    max-width: 550px;
+    height: 33.333%;
+
+    // position: relative;
+    @include flex-position(center , center, nowrap);
+
+    flex-direction: row;
+}
+
+%col_img {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+
+    background: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+%col_subContainer {
+    @include flex-position(center , center, nowrap);
+
+    flex-direction: column;
+    order: 2;
+}
+
+%col_subContainer_span {
+    color: map-get($colors, my_gray);
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 5px 55px;
+}
+
+%col_subContainer_btn {
+    border:none;
+    color: map-get($colors, light);
+    background: map-get($colors, rasp);
+    cursor: pointer;
+}

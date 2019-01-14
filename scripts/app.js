@@ -9,7 +9,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let bool = true;
 
     hamburger.addEventListener("click", () => {
-            list[0].style.display = "block";
+           if (list[0].style.display === "block"){
+                list[0].style.display = "none"
+           } else {
+                list[0].style.display = "block"
+           }
+
     });
   });
 
