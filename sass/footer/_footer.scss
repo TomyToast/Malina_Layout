@@ -7,4 +7,38 @@
     background: map-get($colors, footer);
     max-height: 15rem;
 
+    .footer_box{
+        width: 100%;
+        padding: 1rem;
+        @include flex-position(center, center, nowrap);
+        flex-direction: column;
+        .footer_box_logo{
+            align-self: flex-start;
+        }
+        .footer_box_info{
+            width: 90%;
+            @include flex-position(space-between, center, nowrap);
+            flex-direction: row;
+            padding: 1rem;
+            .footer_box_info_links{
+                .links{
+                    align-self: flex-start;
+                    list-style-type: none;
+                    columns: 2;
+                    column-gap: 2rem;
+                    font-size: 1rem;
+                    .ul-link{
+                        a{
+                            text-decoration: none;
+                            color: map-get($colors, light);
+                        }
+                    }
+                }
+            }
+        .footer_box_info_rights{
+            align-self: flex-start;
+        }
+    }
+}
+
 }

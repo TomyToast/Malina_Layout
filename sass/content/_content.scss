@@ -13,6 +13,7 @@
     width: 100%;
     height: 100%;
     border: 2px solid red;
+    background-attachment: fixed;
 
     @include flex-position(center, center, nowrap);
         @extend %bg_img_div;
@@ -114,6 +115,7 @@
     .content_paralax {
         @extend %bg_img_div;
         background-image: url(images/paralax-bg.jpg);
+        background-attachment: fixed;
 
         height: 50%;
         position: relative;
@@ -180,5 +182,54 @@
 
             }
         }
+    }
+
+    .content_newsletter {
+        @extend %div_container;
+        height: 18rem;
+        padding: 5px;
+
+        background: map-get($colors, rasp);
+
+        .content_newsletter_box {
+            .content_newsletter_box_title{
+                color: map-get($colors , light);
+                text-align: center;
+                font-weight: 100;
+                margin-bottom: 2rem;
+            }
+            .content_newsletter_box_form{
+                @include flex-position(center, center, wrap);
+                flex-direction: column;
+
+                .form-names, .form-email {
+                    width: 17rem;
+                    height: 2rem;
+                    text-align: center;
+                    margin: 0.5rem;
+                }
+                .form-submit{
+                    @extend %col_subContainer_btn;
+                    width:10rem;
+                    height: 2rem;
+                    border: 2px solid map-get($colors , light);
+                    border-radius: 10%;
+                    margin-top: 0.5rem;
+
+                    &:active {
+                        border: 4px;
+                        background: map-get($colors, dark);
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+    }
+
+    .content_gmap {
+        @extend %div_container;
+        height: 18rem;
+        padding: 1px;
+        background: map-get($colors, my_gray );
     }
 }
