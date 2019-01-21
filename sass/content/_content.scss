@@ -5,14 +5,12 @@
 .content {
     width: 100%;
     height: 100%;
-    max-width: 550px;
     @include flex-position(center, center, nowrap);
     flex-direction: column;
 
     .content_hero {
     width: 100%;
     height: 100%;
-    border: 2px solid red;
     background-attachment: fixed;
 
     @include flex-position(center, center, nowrap);
@@ -78,11 +76,19 @@
 
     .content_menu {
         @extend %div_container;
+        @media (min-width: 720px) {
+            flex-direction: row;
+        }
 
         .content_menu_col {
             @extend %col;
             border-bottom: 2px solid lightgray;
             padding: 5px 0;
+
+            @media (min-width: 720px) {
+                @include flex-position(center, center, nowrap);
+                flex-direction: column;
+            }
 
             .content_menu_col_img1 {
                 @extend %col_img;
@@ -146,7 +152,10 @@
     .content_gallery {
         @extend %div_container;
         height: 30rem;
-        padding: 5px;
+
+        @media (min-width: 720px) {
+            flex-direction: row;
+        }
 
         .content_gallery_col {
             @extend %col;

@@ -2,13 +2,13 @@
 @import "../mixins/mixins";
 
 %div_container {
-    width: 100%;
-    max-width: 34.375rem;
+    width: 100vw;
+    max-width: 80rem;
     height: 25rem;
-    border: 2px solid red;
 
     @include flex-position(center, center, nowrap);
     flex-direction: column;
+
 }
 
 %bg_img_div {
@@ -43,27 +43,39 @@
 
 %col {
     width: 100%;
-    max-width: 550px;
+    // max-width: 550px;
     height: 33.333%;
+    padding: 1rem;
 
     // position: relative;
     @include flex-position(center , center, nowrap);
 
     flex-direction: row;
+
+    @media (min-width: 720px) {
+        width: 50%;
+        height: 50%;
+        flex-direction: column;
+    }
 }
 
 %col_img {
-    width: 100%;
+    width: 50%;
     height: 100%;
-    max-width: 200px;
+    max-width: 50%;
 
     background: transparent;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
     background-size: cover;
+    @media (min-width: 720px) {
+        padding: 1rem 0;
+    }
 }
 
 %col_subContainer {
+    width:100%;
+    height: 50%;
     @include flex-position(center , center, nowrap);
 
     flex-direction: column;
@@ -71,15 +83,21 @@
 }
 
 %col_subContainer_span {
+    // max-width: 70%;
+    height: 100%;
     color: map-get($colors, my_gray);
     font-size: 0.75rem;
     text-align: center;
-    padding: 5px 55px;
+    padding: 0.5rem 1rem;
 }
 
 %col_subContainer_btn {
+    // width: 5rem;
+    // height: 1.5rem;
+    // display: block;
     border:none;
     color: map-get($colors, light);
     background: map-get($colors, rasp);
     cursor: pointer;
+    // font-size: 0.5rem;
 }

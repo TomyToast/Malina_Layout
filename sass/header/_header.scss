@@ -1,23 +1,23 @@
 @import "../variables/variables";
 @import "../mixins/mixins";
+@import "../extends/extends";
 
 .header {
-    width: 100vw;
-    max-width: 550px;
-    height: 4rem;
+    width: 100%;
+    max-width: 80rem;
     display: flex;
     justify-content: space-between;
-    border: 2px solid red;
+    flex-direction: row;
+    padding: 0.25rem;
 
     .header_logo {
-        width: 100%;
-        max-width: 200px;
+        width: 12rem;
 
         background: transparent;
         background-image: url(images/logo.png);
         background-repeat: no-repeat;
-        background-position: center;
-        background-size: auto;
+        background-position: center center;
+        background-size: contain;
     }
 
     .header_menu {
@@ -55,25 +55,20 @@
             &:focus::after {
                 transform: rotate(-90deg) translateX(-10px);
             }
-
         }
         .header_menu_list {
             display: none;
             list-style-type: none;
-            border: 2px solid red;
 
             position: absolute;
             top: 37px;
             right: 0;
-
             a {
                 text-decoration: none;
                 color: map-get($colors, my_gray );
 
-
                 .menu_list_item {
                     display: block;
-                    border: 2px solid red;
                 }
             }
         }
